@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="utf-8">
-    <title></title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap"
-          rel="stylesheet"/>
-    <link href="/static/css/style.css" rel="stylesheet"/>
-</head>
-<body>
-<div id="page">
-
-
-    <div class="wrapper" id="header">
-        <div class="container">
-            <div class="header__logo"></div>
-            <div class="header__menu">
-                <a class="header__link header__link_active" href="#">Home</a>
-                <a class="header__link" href="/catalog/">Products</a>
-                <a class="header__link" href="#">History</a>
-                <a class="header__link" href="/product/">Showroom</a>
-                <a class="header__link" href="/contacts/">Contact</a>
-                <span>
-                    <img alt="" src="/static/img/search.png"/>
-                </span>
-            </div>
-        </div>
-    </div>
-
-
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
     <div class="wrapper slider slider_top">
         <div class="container">
             <div class="info">
@@ -37,9 +10,9 @@
                     Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
                     powder-coated black or highly polished chrome.
                 </div>
-                <span class="button">
+                <a class="button" href="{% url 'product' %}">
                     <span class="button_text">Order us</span>
-                </span>
+                </a>
             </div>
             <div class="slider-bullets">
                 <span class="slider-bullets__bullet"></span>
@@ -48,7 +21,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="wrapper section">
         <div class="container">
@@ -62,47 +34,55 @@
             <div class="tiles">
                 <div class="tiles__tile">
                     <div class="tile-info">
-                        <div class="tile-info__content">
-                            <span class="button button_round"></span>
-                            <div class="tile-info__title">Fishnet chair</div>
-                            <div class="tile-info__description">Seat and back with upholstery made of cold cure foam
+                        <a style="text-decoration: none; color: #000" href="{% url 'product' %}">
+                            <div class="tile-info__content">
+                                <span class="button button_round"></span>
+                                <div class="tile-info__title">Fishnet chair</div>
+                                <div class="tile-info__description">Seat and back with upholstery made of cold cure foam
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <img alt="" src="/static/img/product-1.png"/>
+                    <img alt="" src="{% static 'img/product-1.png' %}"/>
                 </div>
                 <div class="tiles__tile">
                     <div class="tile-info">
-                        <div class="tile-info__content">
-                            <span class="button button_round"></span>
-                            <div class="tile-info__title">Fishnet chair</div>
-                            <div class="tile-info__description">Seat and back with upholstery made of cold cure foam
+                        <a style="text-decoration: none; color: #000" href="{% url 'product' %}">
+                            <div class="tile-info__content">
+                                <span class="button button_round"></span>
+                                <div class="tile-info__title">Fishnet chair</div>
+                                <div class="tile-info__description">Seat and back with upholstery made of cold cure foam
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <img alt="" src="/static/img/product-2.png"/>
+                    <img alt="" src="{% static 'img/product-2.png' %}"/>
                 </div>
                 <div class="tiles__tile">
                     <div class="tile-info">
-                        <div class="tile-info__content">
-                            <span class="button button_round"></span>
-                            <div class="tile-info__title">Fishnet chair</div>
-                            <div class="tile-info__description">Seat and back with upholstery made of cold cure foam
+                        <a style="text-decoration: none; color: #000" href="{% url 'product' %}">
+                            <div class="tile-info__content">
+                                <span class="button button_round"></span>
+                                <div class="tile-info__title">Fishnet chair</div>
+                                <div class="tile-info__description">Seat and back with upholstery made of cold cure foam
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <img alt="" src="/static/img/product-3.png"/>
+                    <img alt="" src="{% static 'img/product-3.png' %}"/>
                 </div>
                 <div class="tiles__tile">
                     <div class="tile-info">
-                        <div class="tile-info__content">
-                            <span class="button button_round"></span>
-                            <div class="tile-info__title">Fishnet chair</div>
-                            <div class="tile-info__description">Seat and back with upholstery made of cold cure foam
+                        <a style="text-decoration: none; color: #000" href="{% url 'product' %}">
+                            <div class="tile-info__content">
+                                <span class="button button_round"></span>
+                                <div class="tile-info__title">Fishnet chair</div>
+                                <div class="tile-info__description">Seat and back with upholstery made of cold cure foam
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
-                    <img alt="" src="/static/img/product-4.png"/>
+                    <img alt="" src="{% static 'img/product-4.png' %}"/>
                 </div>
             </div>
         </div>
@@ -113,29 +93,29 @@
         <div class="container">
             <div class="promo">
                 <div class="promo-item">
-                    <img alt="" src="/static/img/promo-img1.png"/>
+                    <img alt="" src="{% static 'img/promo-img1.png' %}"/>
                     <div class="info info_s">
                         <div class="info__header color-blue">Exclusive</div>
                         <div class="info__title">Fishnet chair</div>
                         <div class="info__description">
                             Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
                         </div>
-                        <span class="button">
+                        <a class="button" href="{% url 'product' %}">
                             <span class="button_text">Order us</span>
-                        </span>
+                        </a>
                     </div>
                 </div>
                 <div class="promo-item">
-                    <img alt="" src="/static/img/promo-img.png"/>
+                    <img alt="" src="{% static 'img/promo-img.png' %}"/>
                     <div class="info info_s">
                         <div class="info__header color-blue">Exclusive</div>
                         <div class="info__title">Fishnet chair</div>
                         <div class="info__description">
                             Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
                         </div>
-                        <span class="button">
+                        <a class="button" href="{% url 'product' %}">
                             <span class="button_text">Order us</span>
-                        </span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -151,22 +131,34 @@
             </div>
             <div class="tiles">
                 <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="/static/img/product-11.png"/>
+                    <a href="{% url 'product' %}">
+                        <img alt="" src="{% static 'img/product-11.png' %}"/>
+                    </a>
                 </div>
                 <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="/static/img/product-21.png"/>
+                    <a href="{% url 'product' %}">
+                        <img alt="" src="{% static 'img/product-21.png' %}"/>
+                    </a>
                 </div>
                 <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="/static/img/product-31.png"/>
+                    <a href="{% url 'product' %}">
+                        <img alt="" src="{% static 'img/product-31.png' %}"/>
+                    </a>
                 </div>
                 <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="/static/img/product-41.png"/>
+                    <a href="{% url 'product' %}">
+                        <img alt="" src="{% static 'img/product-41.png' %}"/>
+                    </a>
                 </div>
                 <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="/static/img/product-5.png"/>
+                    <a href="{% url 'product' %}">
+                        <img alt="" src="{% static 'img/product-5.png' %}"/>
+                    </a>
                 </div>
                 <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="/static/img/product-6.png"/>
+                    <a href="{% url 'product' %}">
+                        <img alt="" src="{% static 'img/product-6.png' %}"/>
+                    </a>
                 </div>
             </div>
         </div>
@@ -182,9 +174,9 @@
                     Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
                     powder-coated black or highly polished chrome.
                 </div>
-                <span class="button">
+                <a class="button" href="{% url 'product' %}">
                     <span class="button_text">Order us</span>
-                </span>
+                </a>
             </div>
             <div class="slider-bullets">
                 <span class="slider-bullets__bullet"></span>
@@ -199,30 +191,40 @@
         <div class="container">
             <div class="tiles">
                 <div class="tiles__tile tiles__tile_l">
-                    <img alt="" src="/static/img/product-1-lg.png"/>
+                    <a href="{% url 'product' %}">
+                        <img alt="" src="{% static 'img/product-1-lg.png' %}"/>
 
-                    <div class="info info_s">
-                        <div class="info__header color-blue">Exclusive</div>
-                        <div class="info__title">Fishnet pillow</div>
-                        <div class="info__description">
-                            Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
-                        </div>
-                        <span class="button">
+                        <div class="info info_s">
+                            <div class="info__header color-blue">Exclusive</div>
+                            <div class="info__title">Fishnet pillow</div>
+                            <div class="info__description">
+                                Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
+                            </div>
+                            <span class="button">
                             <span class="button_text">Order us</span>
                         </span>
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 <div class="tiles__tile">
-                    <img alt="" src="/static/img/product-2-sm.png"/>
+                    <a href="{% url 'product' %}">
+                        <img alt="" src="{% static 'img/product-2-sm.png' %}"/>
+                    </a>
                 </div>
                 <div class="tiles__tile">
-                    <img alt="" src="/static/img/product-3-sm.png"/>
+                    <a href="{% url 'product' %}">
+                        <img alt="" src="{% static 'img/product-3-sm.png' %}"/>
+                    </a>
                 </div>
                 <div class="tiles__tile">
-                    <img alt="" src="/static/img/product-4-sm.png"/>
+                    <a href="{% url 'product' %}">
+                        <img alt="" src="{% static 'img/product-4-sm.png' %}"/>
+                    </a>
                 </div>
                 <div class="tiles__tile">
-                    <img alt="" src="/static/img/product-5-sm.png"/>
+                    <a href="{% url 'product' %}">
+                        <img alt="" src="{% static 'img/product-5-sm.png' %}"/>
+                    </a>
                 </div>
             </div>
         </div>
@@ -238,62 +240,10 @@
                     <div class="mobile__description">Save your favorites and share your style.</div>
                 </div>
                 <div class="mobile__buttons">
-                    <a href="#"><img alt="" src="/static/img/app-store.png"/></a>
-                    <a href="#"><img alt="" src="/static/img/google-play.png"/></a>
+                    <a href="#"><img alt="" src="{% static 'img/app-store.png' %}"/></a>
+                    <a href="#"><img alt="" src="{% static 'img/google-play.png' %}"/></a>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <div class="wrapper footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__nav">
-                    <div>
-                        <h3>Contact us</h3>
-                        <address>
-                            132A Bridge Road Richmond VIC
-                            Australia.
-                        </address>
-                        <div>
-                            Talk to us on <a href="tel:000000">1300 132</a>
-                            <a href="mailto:info@interior.com">info@interior.com</a>
-                        </div>
-                    </div>
-                    <div>
-                        <h3>Useful Information</h3>
-                        <div>
-                            <ul>
-                                <li><a href="#">Sales terms</a></li>
-                                <li><a href="#">Customer care</a></li>
-                                <li><a href="#">Delivery</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#">Architect accounts</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Exchanges & returns</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div>
-                        <h3>Let’s Stay in Touch!</h3>
-                        <p>Suscribe to know about our latest news, products and special offers just for suscribers.</p>
-                        <input placeholder="your email address" type="email"/>
-                    </div>
-                </div>
-                <div class="footer__copy">
-                    <div>© Copyright - INTERIOR 2016. All Rights Reserved.</div>
-                    <div><img alt="" src="/static/img/social-links.png"/></div>
-                    <div>
-                        <a href="#">Terms & Conditions</a> / <a href="#">Privacy policy & Cookies</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-</body>
-</html>
+{% endblock %}

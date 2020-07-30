@@ -1,0 +1,90 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="wrapper" id="page-title">
+        <div class="container">
+            <div class="title">Our Products Range</div>
+        </div>
+    </div>
+
+    <div class="wrapper section">
+        <div class="container">
+            {% include 'mainapp/include/inc_submenu.html' %}
+            <div class="tiles tiles_loading">
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-11.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-21.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-31.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-41.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-5.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-6.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-11.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-21.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-31.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-41.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-5.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-6.png' %}"/>
+                </div>
+                <div class="tiles__tile tiles__tile_m">
+                    <img alt="" src="{% static 'img/product-11.png' %}"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="wrapper">
+        <div class="container">
+            <div class="promo">
+                <div class="promo-item">
+                    <img alt="" src="{% static 'img/promo-img1.png' %}"/>
+                    <div class="info info_s">
+                        <div class="info__header color-blue">Exclusive</div>
+                        <div class="info__title">Fishnet chair</div>
+                        <div class="info__description">
+                            Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
+                        </div>
+                        <span class="button">
+                            <span class="button_text">Order us</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="promo-item">
+                    <img alt="" src="{% static 'img/promo-img.png' %}"/>
+                    <div class="info info_s">
+                        <div class="info__header color-blue">Exclusive</div>
+                        <div class="info__title">Fishnet chair</div>
+                        <div class="info__description">
+                            Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
+                        </div>
+                        <span class="button">
+                            <span class="button_text">Order us</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
