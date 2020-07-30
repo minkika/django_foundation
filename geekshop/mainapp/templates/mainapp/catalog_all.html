@@ -9,17 +9,7 @@
 
     <div class="wrapper section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tabs section-tabs_small">
-                    <span class="section-tabs__tab section-tabs__tab_active">All</span>
-                    <span class="section-tabs__tab">Home</span>
-                    <span class="section-tabs__tab">Office</span>
-                    <span class="section-tabs__tab">Furniture</span>
-                    <span class="section-tabs__tab">Modern</span>
-                    <span class="section-tabs__tab">Classic</span>
-                </span>
-                <span class="section-aside">Explore all</span>
-            </div>
+            {% include 'mainapp/include/inc_submenu.html' %}
             <div class="tiles tiles_loading">
                 <div class="tiles__tile tiles__tile_m">
                     <img alt="" src="{% static 'img/product-11.png' %}"/>

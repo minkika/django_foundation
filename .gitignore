@@ -1,0 +1,5 @@
+.idea
+geekshop/db.sqlite3
+geekshop/geekshop/__pycache__/
+geekshop/mainapp/__pycache__
+geekshop/mainapp/migrations/__pycache__
