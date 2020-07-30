@@ -57,6 +57,8 @@ body {
     padding: 16px 32px 16px 32px;
     position: relative;
     text-align: center;
+    text-decoration: none;
+    color: #6c6c6c;
 }
 
 .button:hover {

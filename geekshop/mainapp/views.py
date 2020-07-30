@@ -3,16 +3,32 @@ from django.shortcuts import render
 
 
 def main(request):
-    return render(request, 'mainapp/index.html')
+    context = {
+        'copyright': 'Golubeva Lyubov - GB',
+        'title': 'geekshop',
+    }
+    return render(request, 'mainapp/index.html', context)
 
 
 def catalog(request):
-    return render(request, 'mainapp/catalog.html')
+    context = {
+        'copyright': 'Golubeva Lyubov - GB',
+        'title': 'catalog',
+    }
+    return render(request, 'mainapp/catalog.html', context)
 
 
 def contacts(request):
-    return render(request, 'mainapp/contacts.html')
+    context = {
+        'copyright': 'Golubeva Lyubov - GB',
+        'title': 'contacts',
+    }
+    return render(request, 'mainapp/contacts.html', context)
 
 
 def product(request):
-    return render(request, 'mainapp/product.html')
+    context = {
+        'copyright': 'Golubeva Lyubov - GB',
+        'title': 'product'
+    }
+    return render(request, 'mainapp/product.html', context)

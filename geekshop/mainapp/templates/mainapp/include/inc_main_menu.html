@@ -1,0 +1,26 @@
+{% load static %}
+<div class="header__menu">
+    <a
+            {% if request.resolver_match.url_name == 'main' %}
+                class="header__link header__link_active"
+            {% else %}
+                class="header__link"
+            {% endif %}
+
+                href="{% url 'main' %}">Home</a>
+    <a {% if request.resolver_match.url_name == 'catalog' %}
+                class="header__link header__link_active"
+            {% else %}
+                class="header__link"
+            {% endif %} href="{% url 'catalog' %}">Products</a>
+    <a {% if request.resolver_match.url_name == 'product' %}
+                class="header__link header__link_active"
+            {% else %}
+                class="header__link"
+            {% endif %} href="{% url 'product' %}">Showroom</a>
+    <a {% if request.resolver_match.url_name == 'contacts' %}
+                class="header__link header__link_active"
+            {% else %}
+                class="header__link"
+            {% endif %} href="{% url 'contacts' %}">Contact</a>
+</div>
