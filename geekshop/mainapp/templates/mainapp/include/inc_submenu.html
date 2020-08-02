@@ -2,12 +2,10 @@
     <span class="section-tabs section-tabs_small">
         {% for link_item in links_menu %}
             <a
-                    {% if request.resolver_match.url_name == link_item.href %}
-                        class="section-tabs__tab section-tabs__tab_active"
-                    {% else %}
-                        class="section-tabs__tab"
-                    {% endif %}
-                        href="{% url link_item.href %}">
+
+{#                        class="section-tabs__tab"#}
+
+                        href="{% url 'products:products' link.pk %}">
                 {{ link_item.name }}</a>
         {% endfor %}
     </span>

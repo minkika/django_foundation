@@ -37,6 +37,21 @@
     {% endblock %}
 
     {% block footer %}
+        <div class="wrapper mobile">
+            <div class="container">
+                <div class="mobile__content">
+                    <div>
+                        <div class="mobile__heading">Mobile app</div>
+                        <div class="mobile__title">Find. Follow. Favorite.</div>
+                        <div class="mobile__description">Save your favorites and share your style.</div>
+                    </div>
+                    <div class="mobile__buttons">
+                        <a href="#"><img alt="" src="{% static 'img/app-store.png' %}"/></a>
+                        <a href="#"><img alt="" src="{% static 'img/google-play.png' %}"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="wrapper footer">
             <div class="container">
                 <div class="footer__content">
