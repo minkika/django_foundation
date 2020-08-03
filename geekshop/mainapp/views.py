@@ -15,6 +15,7 @@ def main(request):
 
 
 def catalog(request, pk=None):
+    title = 'All furniture'
     if pk:
         current_category = ProductCategory.objects.get(pk=pk)
         title = current_category.name
@@ -22,10 +23,10 @@ def catalog(request, pk=None):
 
     context = {
         'copyright': 'Golubeva Lyubov - GB',
-        'title': title | 'All furniture',
+        'title': title,
         'links_menu': links_menu,
     }
-    return render(request, 'mainapp/catalog_all.html', context)
+    return render(request, 'mainapp/catalog.html', context)
 
 def contacts(request):
     with open('contact_list.json') as f:

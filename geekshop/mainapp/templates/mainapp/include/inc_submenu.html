@@ -1,11 +1,8 @@
 <div class="section-header">
     <span class="section-tabs section-tabs_small">
         {% for link_item in links_menu %}
-            <a
-
-{#                        class="section-tabs__tab"#}
-
-                        href="{% url 'products:products' link.pk %}">
+            <a class="section-tabs__tab"
+                    href="{% url 'catalog:products' link_item.pk %}">
                 {{ link_item.name }}</a>
         {% endfor %}
     </span>
