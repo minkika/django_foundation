@@ -467,6 +467,8 @@ body {
     font-size: 22px;
     font-weight: 700;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tile-info__description {
