@@ -1,3 +1,5 @@
+import re
+
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, UserCreationForm
 
@@ -29,7 +31,7 @@ class ShopUserRegisterForm(UserCreationForm):
     def clean_age(self):
         data = self.cleaned_data['age']
         if data < 18:
-            raise forms.ValidationError("Вы слишком молоды!")
+            raise forms.ValidationError("You should be elder than 18 y.o!")
 
         return data
 
@@ -48,6 +50,6 @@ class ShopUserEditForm(UserChangeForm):
     def clean_age(self):
         data = self.cleaned_data['age']
         if data < 18:
-            raise forms.ValidationError("Вы слишком молоды!")
+            raise forms.ValidationError("You should be elder than 18 y.o!")
 
         return data
