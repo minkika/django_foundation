@@ -1,0 +1,47 @@
+[
+  {
+    "category": "home",
+    "name": "Lamp-egg",
+    "image": "product_images/product-1.png",
+    "short_desc": "Lamp",
+    "description": "Good lamp",
+    "price": "289.5",
+    "quantity": "17"
+  },
+  {
+    "category": "office",
+    "name": "Two chairs",
+    "image": "product_images/product-2.png",
+    "short_desc": "Good chairs",
+    "description": "Yes, two",
+    "price": "3687.2",
+    "quantity": "21"
+  },
+  {
+    "category": "home",
+    "name": "Melted pot",
+    "image": "product_images/product-3.png",
+    "short_desc": "Melted pot",
+    "description": "Good pot",
+    "price": "157.99",
+    "quantity": "7"
+  },
+  {
+    "category": "modern",
+    "name": "Red chair",
+    "image": "product_images/product-4.png",
+    "short_desc": "Modern chair",
+    "description": "Good chair",
+    "price": "1895.25",
+    "quantity": "27"
+  },
+  {
+    "category": "classic",
+    "name": "Marble lamp",
+    "image": "product_images/product-11.png",
+    "short_desc": "Good lamp",
+    "description": "Marble lamp",
+    "price": "587.41",
+    "quantity": "9"
+  }
+]
