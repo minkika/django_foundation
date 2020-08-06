@@ -1,8 +1,7 @@
 import json
 
 from django.shortcuts import render
-from mainapp.models import Product
-from mainapp.models import ProductCategory
+from .models import Product, ProductCategory
 
 
 def main(request):
@@ -29,7 +28,7 @@ def catalog(request, pk=None):
     return render(request, 'mainapp/catalog.html', context)
 
 def contacts(request):
-    with open('contact_list.json') as f:
+    with open('mainapp/json/contact__locations.json') as f:
         json_data = json.load(f)
     context = {
         'copyright': 'Golubeva Lyubov - GB',
