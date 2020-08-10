@@ -31,7 +31,7 @@ class ShopUserRegisterForm(UserCreationForm):
     def clean_age(self):
         data = self.cleaned_data['age']
         if data < 18:
-            raise forms.ValidationError("You should be elder than 18 y.o!")
+            raise forms.ValidationError("You should be elder than 18 y.o!") 
 
         return data
 

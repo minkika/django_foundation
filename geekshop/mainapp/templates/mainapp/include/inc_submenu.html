@@ -1,10 +1,21 @@
 <div class="section-header">
     <span class="section-tabs section-tabs_small">
         {% for link_item in links_menu %}
-            <a class="section-tabs__tab"
-                    href="{% url 'catalog:products' link_item.pk %}">
-                {{ link_item.name }}</a>
+            <a
+                {% if category.pk == link_item.pk %}
+                    class="section-tabs__tab section-tabs__tab_active"
+                {% else %}
+                    class="section-tabs__tab"
+                {% endif %}
+                href="{% url 'catalog:products' link_item.pk %}"
+                title="{{ link_item.name }}"
+            >{{ link_item.name }}</a>
         {% endfor %}
     </span>
-    <span class="section-aside">Explore all</span>
+    <span class="section-aside">
+        <a
+            class=""
+            href="{% url 'catalog:products' 0 %}"
+        >Explore all</a>
+    </span>
 </div>

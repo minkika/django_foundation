@@ -6,20 +6,25 @@
             {% else %}
                 class="header__link"
             {% endif %}
-
-                href="{% url 'main' %}">Home</a>
+                href="{% url 'main' %}"
+    >Home</a>
     <a
-            {% if 'catalog' in request.resolver_match.url_name %}
+            {% if 'catalog' in request.resolver_match.route %}
                 class="header__link header__link_active"
             {% else %}
                 class="header__link"
-            {% endif %} href="{% url 'catalog:index' %}">Products</a>
+            {% endif %}
+                href="{% url 'catalog:index' %}"
+    >Products</a>
     <a
             {% if request.resolver_match.url_name == 'contacts' %}
                 class="header__link header__link_active"
             {% else %}
                 class="header__link"
-            {% endif %} href="{% url 'contacts' %}">Contact</a>
+            {% endif %}
+                href="{% url 'contacts' %}"
+    >Contact</a>
+
     {% if user.is_authenticated %}
         <a href="{% url 'auth:edit' %}" class="header__link">
             {{ user.first_name|default:'Unknown user' }}
@@ -30,4 +35,5 @@
     {% else %}
         <a href="{% url 'auth:login' %}" class="header__link">Login</a>
     {% endif %}
+    <a class="header__link" href="#">Cart</a>
 </div>

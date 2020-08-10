@@ -1,5 +1,6 @@
 import json
 
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from .models import Product, ProductCategory
 
@@ -14,18 +15,23 @@ def main(request):
 
 
 def catalog(request, pk=None):
-    title = 'All furniture'
-    if pk:
-        current_category = ProductCategory.objects.get(pk=pk)
-        title = current_category.name
     links_menu = ProductCategory.objects.all()
-
-    context = {
-        'copyright': 'Golubeva Lyubov - GB',
-        'title': title,
-        'links_menu': links_menu,
+    category = {
+        'name': 'All furniture'
     }
-    return render(request, 'mainapp/catalog.html', context)
+
+    if pk is None or pk == 0:
+        products_list = Product.objects.all()
+    else:
+        category = get_object_or_404(ProductCategory, pk=pk)
+        products_list = Product.objects.filter(category__pk=pk)
+
+    return render(request, 'mainapp/catalog.html', {
+        'copyright': 'Golubeva Lyubov - GB',
+        'links_menu': links_menu,
+        'category': category,
+        'products': products_list,
+    })
 
 def contacts(request):
     with open('mainapp/json/contact__locations.json') as f:
@@ -43,4 +49,7 @@ def product(request):
         'copyright': 'Golubeva Lyubov - GB',
         'title': 'product'
     }
+
+
+
     return render(request, 'mainapp/product.html', context)
