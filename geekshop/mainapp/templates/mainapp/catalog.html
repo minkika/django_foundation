@@ -16,7 +16,7 @@
 
             <div class="tiles">
                 {% for product in products %}
-                    <a class="tiles__tile" href="#">
+                    <a class="tiles__tile" href="{% url 'basket:add' product.pk %}">
                         <div class="tile-info">
                             <div class="tile-info__content">
                                 <span class="button button_round"></span>

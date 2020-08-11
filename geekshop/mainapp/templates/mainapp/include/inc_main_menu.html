@@ -35,5 +35,12 @@
     {% else %}
         <a href="{% url 'auth:login' %}" class="header__link">Login</a>
     {% endif %}
-    <a class="header__link" href="#">Cart</a>
+
+    <a class="header__link" href="#">Cart items
+    <span>
+        {% if basket %}
+            {{ basket|length }}
+        {% endif %}
+    </span>
+    </a>
 </div>

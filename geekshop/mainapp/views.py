@@ -3,6 +3,7 @@ import json
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from .models import Product, ProductCategory
+from basketapp.models import Basket
 
 
 def main(request):
@@ -15,6 +16,10 @@ def main(request):
 
 
 def catalog(request, pk=None):
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
     links_menu = ProductCategory.objects.all()
     category = {
         'name': 'All furniture'
@@ -31,6 +36,7 @@ def catalog(request, pk=None):
         'links_menu': links_menu,
         'category': category,
         'products': products_list,
+        'basket': basket
     })
 
 def contacts(request):
@@ -49,7 +55,5 @@ def product(request):
         'copyright': 'Golubeva Lyubov - GB',
         'title': 'product'
     }
-
-
 
     return render(request, 'mainapp/product.html', context)
