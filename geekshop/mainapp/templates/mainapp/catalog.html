@@ -1,59 +1,35 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
+
+
+
 {% block content %}
     <div class="wrapper" id="page-title">
         <div class="container">
-            <div class="title">Our Products Range</div>
+            <div class="title">{{ category.name|title }}</div>
         </div>
     </div>
 
     <div class="wrapper section">
         <div class="container">
             {% include 'mainapp/include/inc_submenu.html' %}
-            <div class="tiles tiles_loading">
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-11.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-21.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-31.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-41.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-5.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-6.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-11.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-21.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-31.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-41.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-5.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-6.png' %}"/>
-                </div>
-                <div class="tiles__tile tiles__tile_m">
-                    <img alt="" src="{% static 'img/product-11.png' %}"/>
-                </div>
+
+            <div class="tiles">
+                {% for product in products %}
+                    <a class="tiles__tile" href="{% url 'basket:add' product.pk %}">
+                        <div class="tile-info">
+                            <div class="tile-info__content">
+                                <span class="button button_round"></span>
+                                <div class="tile-info__title">{{ product.name }}</div>
+                                <div class="tile-info__description">{{ product.short_desc }}</div>
+                            </div>
+                        </div>
+                        <img alt="{{ product.name }}" src="/media/{{ product.image }}"/>
+                    </a>
+                {% endfor %}
             </div>
         </div>
     </div>
-
 
     <div class="wrapper">
         <div class="container">

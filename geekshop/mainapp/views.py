@@ -1,7 +1,9 @@
 import json
 
+from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from .models import Product, ProductCategory
+from basketapp.models import Basket
 
 
 def main(request):
@@ -14,18 +16,28 @@ def main(request):
 
 
 def catalog(request, pk=None):
-    title = 'All furniture'
-    if pk:
-        current_category = ProductCategory.objects.get(pk=pk)
-        title = current_category.name
-    links_menu = ProductCategory.objects.all()
+    basket = []
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
 
-    context = {
-        'copyright': 'Golubeva Lyubov - GB',
-        'title': title,
-        'links_menu': links_menu,
+    links_menu = ProductCategory.objects.all()
+    category = {
+        'name': 'All furniture'
     }
-    return render(request, 'mainapp/catalog.html', context)
+
+    if pk is None or pk == 0:
+        products_list = Product.objects.all()
+    else:
+        category = get_object_or_404(ProductCategory, pk=pk)
+        products_list = Product.objects.filter(category__pk=pk)
+
+    return render(request, 'mainapp/catalog.html', {
+        'copyright': 'Golubeva Lyubov - GB',
+        'links_menu': links_menu,
+        'category': category,
+        'products': products_list,
+        'basket': basket
+    })
 
 def contacts(request):
     with open('mainapp/json/contact__locations.json') as f:
@@ -43,4 +55,5 @@ def product(request):
         'copyright': 'Golubeva Lyubov - GB',
         'title': 'product'
     }
+
     return render(request, 'mainapp/product.html', context)
