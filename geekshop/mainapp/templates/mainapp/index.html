@@ -34,7 +34,7 @@
             <div class="tiles">
 
                 {% for product in products %}
-                    <a class="tiles__tile" href="{% url 'product' %}">
+                    <a class="tiles__tile" href="{% url 'catalog:product' product.pk %}">
 
                         <div class="tile-info">
                             <div class="tile-info__content">
@@ -137,7 +137,7 @@
                     Seat and back with upholstery made of cold cure foam. Steel frame, available in matt
                     powder-coated black or highly polished chrome.
                 </div>
-                <a class="button" href="{% url 'product' %}">
+                <a class="button" href="#">
                     <span class="button_text">Order us</span>
                 </a>
             </div>

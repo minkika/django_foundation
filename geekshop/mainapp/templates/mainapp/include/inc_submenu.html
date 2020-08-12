@@ -7,7 +7,7 @@
                 {% else %}
                     class="section-tabs__tab"
                 {% endif %}
-                href="{% url 'catalog:products' link_item.pk %}"
+                href="{% url 'category' link_item.pk %}"
                 title="{{ link_item.name }}"
             >{{ link_item.name }}</a>
         {% endfor %}
@@ -15,7 +15,7 @@
     <span class="section-aside">
         <a
             class=""
-            href="{% url 'catalog:products' 0 %}"
+            href="{% url 'category' 0 %}"
         >Explore all</a>
     </span>
 </div>
