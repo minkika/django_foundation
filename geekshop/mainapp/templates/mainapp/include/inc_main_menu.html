@@ -37,10 +37,14 @@
     {% endif %}
 
     <a href="{% url 'basket:view' %}" class="header__link"> Cart items
-    <span>
+        <span>
         {% if basket %}
             {{ basket.0.total_cost|floatformat:0 }} ₽ ({{ basket.0.total_quantity }} pcs)
         {% endif %}
     </span>
     </a>
+
+{#    <span>#}
+{#        <img alt="" src="{% static 'img/search.png' %}"/>#}
+{#    </span>#}
 </div>

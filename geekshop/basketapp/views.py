@@ -51,8 +51,7 @@ def basket_remove(request, pk):
 @login_required
 def basket_edit(request, pk, quantity):
     if request.is_ajax():
-        print(f'{pk} - {quantity}')
-        new_basket_item = Basket.objects.get(pk=int(pk))
+        new_basket_item = Basket.objects.filter(user=request.user).get(pk=int(pk))
 
         if quantity > 0:
             new_basket_item.quantity = quantity

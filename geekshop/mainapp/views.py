@@ -37,10 +37,19 @@ def main(request):
         'copyright': 'Golubeva Lyubov - GB',
         'title': 'geekshop',
         'products': Product.objects.all()[:4],
+        'new_products': Product.objects.all()[3:7],
         'basket': get_basket(request.user),
     }
     return render(request, 'mainapp/index.html', context)
 
+def new(request):
+    context = {
+        'copyright': 'Golubeva Lyubov - GB',
+        'title': 'geekshop',
+        'products': Product.objects.all()[3:7],
+        'basket': get_basket(request.user),
+    }
+    return render(request, 'mainapp/index.html', context)
 
 def catalog(request, pk=None):
     basket = []

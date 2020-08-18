@@ -26,21 +26,20 @@ window.onload = function () {
     */
 
     // добавляем ajax-обработчик для обновления количества товара
-    $('.basket_list').on('click', 'input[type="number"]', function () {
-        let target_href = event.target;
+    $('.basket__items')
+        .on('change', 'input[type="number"]', function (event) {
+            let input = event.target;
 
-        if (target_href) {
-            $.ajax({
-                url: "/basket/edit/" + target_href.name + "/" + target_href.value + "/",
+            if (input) {
+                $.ajax({
+                    url: "/basket/edit/" + input.name + "/" + input.value + "/",
+                    success: function (data) {
+                        $('.basket__items').html(data.result);
+                    },
+                });
 
-                success: function (data) {
-                    $('.basket_list').html(data.result);
-                    console.log('ajax done');
-                },
-            });
-
-        }
-        event.preventDefault();
-    });
+            }
+            event.preventDefault();
+        });
 
 };

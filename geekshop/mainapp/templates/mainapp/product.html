@@ -26,7 +26,8 @@
 
                 <div class="product__cell">
                     <div class="product__title">{{ product.name }}</div>
-                    <div class="product__subtitle">Hot Deal</div>
+                    <div class="product__subtitle"
+                    >Hot Deal</div>
                     <div class="product__price"><b>{{ product.price }}</b>₽</div>
                     <div class="product__button">
                         <a href='{% url 'basket:add' product.pk %}' class="button button_red">
