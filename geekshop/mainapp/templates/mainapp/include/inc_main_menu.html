@@ -36,11 +36,15 @@
         <a href="{% url 'auth:login' %}" class="header__link">Login</a>
     {% endif %}
 
-    <a class="header__link" href="#">Cart items
-    <span>
+    <a href="{% url 'basket:view' %}" class="header__link"> Cart items
+        <span>
         {% if basket %}
-            {{ basket|length }}
+            {{ basket.0.total_cost|floatformat:0 }} ₽ ({{ basket.0.total_quantity }} pcs)
         {% endif %}
     </span>
     </a>
+
+{#    <span>#}
+{#        <img alt="" src="{% static 'img/search.png' %}"/>#}
+{#    </span>#}
 </div>
