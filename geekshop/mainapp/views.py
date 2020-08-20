@@ -23,7 +23,7 @@ def get_basket(user):
 
 
 def get_hot_product():
-    products = Product.objects.all()
+    products = Product.objects.filter(category__is_active=True)
     return random.sample(list(products), 1)[0]
 
 
@@ -36,7 +36,7 @@ def main(request):
     context = {
         'copyright': 'Golubeva Lyubov - GB',
         'title': 'geekshop',
-        'products': Product.objects.all()[:4],
+        'products': Product.objects.filter(category__is_active=True)[:4],
         'new_products': Product.objects.all()[3:7],
         'basket': get_basket(request.user),
     }
@@ -56,13 +56,13 @@ def catalog(request, pk=None):
     if request.user.is_authenticated:
         basket = Basket.objects.filter(user=request.user)
 
-    links_menu = ProductCategory.objects.all()
+    links_menu = ProductCategory.objects.filter(is_active=True)
     category = {
         'name': 'All furniture'
     }
 
     if pk is None or pk == 0:
-        products_list = Product.objects.all()
+        products_list = Product.objects.filter(category__is_active=True)
     else:
         category = get_object_or_404(ProductCategory, pk=pk)
         products_list = Product.objects.filter(category__pk=pk)
@@ -98,7 +98,7 @@ def product(request, pk):
     basket = []
     if request.user.is_authenticated:
         basket = Basket.objects.filter(user=request.user)
-    links_menu = ProductCategory.objects.all()
+    links_menu = ProductCategory.objects.filter(category__is_active=True)
 
     product = get_object_or_404(Product, pk=pk)
     same_products = get_same_products(product)
