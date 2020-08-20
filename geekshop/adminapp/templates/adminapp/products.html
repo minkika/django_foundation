@@ -10,7 +10,7 @@
         <hr>
 		
 		{% for object in objects %}
-			<div class="product_record">
+			<div class="product_record {% if not object.is_active %}not_active{% endif %}">
 				<img src="/media/{{ object.image|default:'products_images/default.jpg' }}" alt="{{ object.name }}">
 				<div class="product_name">
 					{{ object.name|title }}
@@ -23,7 +23,11 @@
 						<a href={% url 'admin:product_update' object.pk %}>Change</a>
 					</button>
 					<button>
-						<a href={% url 'admin:product_delete' object.pk %}>Delete</a>
+                        {% if object.is_active %}
+                            <a href={% url 'admin:product_delete' object.pk %}>Delete</a>
+                        {% else %}
+                            <a href={% url 'admin:product_delete' object.pk %}>Restore</a>
+                        {% endif %}
 					</button>
 				</div>
 				<div class="summary">
