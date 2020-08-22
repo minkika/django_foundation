@@ -1,5 +1,6 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
+{% load avatar_tag %}
 
 {% block content %}
 
@@ -59,7 +60,7 @@
                                 <div class="tile-info__description">{{ product.short_desc }}</div>
                             </div>
                         </div>
-                        <img alt="{{ product.name }}" src="/media/{{ product.image }}"/>
+                        <img alt="{{ product.name }}" src="{{ product.image|media_folder_products }}"/>
                     </a>
                 {% endfor %}
             </div>
