@@ -2,6 +2,9 @@ import json
 import os
 import random
 
+from django.core.paginator import EmptyPage
+from django.core.paginator import PageNotAnInteger
+from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from .models import Product, ProductCategory
@@ -51,14 +54,15 @@ def new(request):
     }
     return render(request, 'mainapp/index.html', context)
 
-def catalog(request, pk=None):
+def catalog(request, pk=None, page=1):
     basket = []
     if request.user.is_authenticated:
         basket = Basket.objects.filter(user=request.user)
 
     links_menu = ProductCategory.objects.filter(is_active=True)
     category = {
-        'name': 'All furniture'
+        'name': 'All furniture',
+        'pk': 0
     }
 
     if pk is None or pk == 0:
@@ -70,13 +74,22 @@ def catalog(request, pk=None):
     hot_product = get_hot_product()
     same_products = get_same_products(hot_product)
 
+    paginator = Paginator(products_list, 2)
+    try:
+        product_paginator = paginator.page(page)
+    except PageNotAnInteger:
+        product_paginator = paginator(1)
+    except EmptyPage:
+        product_paginator = paginator(paginator.num_pages)
+
+
     content = {
         'copyright': 'Golubeva Lyubov - GB',
         'links_menu': links_menu,
         'hot_product': hot_product,
         'same_products': same_products,
         'category': category,
-        'products': products_list,
+        'products': product_paginator,
         'basket': basket
     }
 
